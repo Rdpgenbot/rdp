@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Direct Avica Setup
         run: |
-          Write-Host "ðŸš€ Starting Avica setup directly..." -ForegroundColor Green
+          Write-Host "🚀 Starting Avica setup directly..." -ForegroundColor Green
           
           # Download files directly
           Invoke-WebRequest -Uri "https://gitlab.com/userup908/my-rdp/-/raw/main/setup.py" -OutFile "setup.py"
@@ -22,7 +22,7 @@ jobs:
           Invoke-WebRequest -Uri "https://gitlab.com/userup908/my-rdp/-/raw/main/loop.bat" -OutFile "loop.bat"
           
           # Install Python packages
-          python.exe -m pip install requests pyautogui telegraph --quiet
+          python -m pip install requests pyautogui telegraph --quiet
           
           # Enable RDP
           Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -value 0
@@ -32,37 +32,37 @@ jobs:
           net user runneradmin TheDisa1a
           
           # Start Avica
-          Write-Host "âš¡ Starting Avica..." -ForegroundColor Yellow
+          Write-Host "⚡ Starting Avica..." -ForegroundColor Yellow
           python -c "import pyautogui as pag; pag.click(897, 64, duration=2)" 2>$null
           Start-Process "Avica_setup.exe"
           
           # Run setup script
           python setup.py
           
-          Write-Host "âœ… Setup completed! Check for GoFile link!" -ForegroundColor Green
+          Write-Host "✅ Setup completed! Check for GoFile link!" -ForegroundColor Green
           
       - name: Setup System User
         run: |
           net user runneradmin TheDisa1a
-          Write-Host "âœ… System user configured" -ForegroundColor Green
+          Write-Host "✅ System user configured" -ForegroundColor Green
           
       - name: Show Connection Info
         run: |
           Write-Host "
-          â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-          â•‘        AVICA RDP CONNECTION          â•‘  
-          â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+          ╔═════════════════════════════════════════════╗
+          ║        AVICA RDP CONNECTION                 ║  
+          ╚═════════════════════════════════════════════╝
           
-          ðŸ“± WhatsApp: +923460257488
-          ðŸ‘¨â€ðŸ’» Created by USMAN PASHA AKA H4K3R
+          📱 WhatsApp: +923460257488
+          👨‍💻 Created by USMAN PASHA AKA H4K3R
           
-          ðŸ“‹ Instructions:
-          â€¢ Go to the GoFile link that will appear below
-          â€¢ Get Avica ID and Password from there
-          â€¢ Download Avica app and connect
-          â€¢ GoFile link changes every time!
+          📋 Instructions:
+          • Go to the GoFile link that will appear below
+          • Get Avica ID and Password from there
+          • Download Avica app and connect
+          • GoFile link changes every time!
           
-          â³ Waiting for GoFile link...
+          ⏳ Waiting for GoFile link...
           " -ForegroundColor Cyan
           
       - name: Start Avica Service
@@ -70,5 +70,5 @@ jobs:
         
       - name: Keep Session Active
         run: |
-          Write-Host "ðŸš€ Avica is starting... Look for CONNECTION ID below!" -ForegroundColor Yellow
+          Write-Host "🚀 Avica is starting... Look for CONNECTION ID below!" -ForegroundColor Yellow
           cmd /c loop.bat
